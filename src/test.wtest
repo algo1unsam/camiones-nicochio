@@ -1,0 +1,6 @@
+import ruta.*
+import camiones.*
+
+test "saber si puede pasar por la ruta" {
+	assert.that(camion.saberSiPuedoIrPorLaRuta(ruta9))
+}
