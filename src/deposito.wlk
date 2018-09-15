@@ -27,5 +27,6 @@ object deposito {
 	method verStockDeDeposito(){
 		return deposito
 	}
+	
 }
 
