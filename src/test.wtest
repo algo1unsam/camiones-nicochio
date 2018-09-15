@@ -34,12 +34,50 @@ test "el camion no puede llevar toda la mercaderia que recibe" {
 	assert.throwsExceptionWithMessage("no se puede cargar el camion por que supera la carga", { => deposito.llenarCamion()})
 }
 
-
-test "la motoneta no puede llevar algo mayor a 100kg" {
+test " cargo a kightRider y el peso total del camion es de 500   " {
 	deposito.recibirMateriales(knightRider)
-	assert.throwsExceptionWithMessage("no se puede cargar la motoneta por que supera la carga", { => deposito.llenarMotoneta()})
+	deposito.llenarCamion()
+	assert.equals(500, camion.pesoTotalQueHayEnElCamion())
 }
 
-test "saber si puede pasar por la ruta" {
-	assert.that(camion.saberSiPuedoIrPorLaRuta(ruta))
+test " cargo a knightrider y 10 ladrillos en el camion y la carga disponibles es de 30 " {
+	camion.cargaleUnaCosa(knightRider)
+	ladrillo.cantidadDeLadrillosALlevar(10)
+	ladrillo.calcularPeso()
+	camion.cargaleUnaCosa(ladrillo)
+	assert.equals(30, camion.cargaDisponible())
 }
+
+test "Camion: si cargo un ladrillo y knightRider, su cosa mas peligrosa es el segundo" {
+	camion.cargaleUnaCosa(ladrillo)
+	camion.cargaleUnaCosa(knightRider)
+	assert.equals(knightRider, camion.cualEslaCosaMasPeligrosa())
+}
+
+test "saber si puede pasar por la ruta que tiene 20 de nivel de peligrosidad
+ si esta cargado knightRider que tiene 10 de nivel de peligrosidad" {
+	camion.cargaleUnaCosa(knightRider)
+	ladrillo.cantidadDeLadrillosALlevar(10)
+	camion.cargaleUnaCosa(ladrillo)
+	assert.that(camion.saberSiPuedoIrPorLaRuta())
+}
+
+test "Motoneta: puede llevar dos ladrillos" {
+	var materialesMotoneta = []
+	materialesMotoneta.add(ladrillo)
+	ladrillo.cantidadDeLadrillosALlevar(2)
+	deposito.llenarMotoneta()
+	assert.equals([],motoneta.verMaterialesCargador())
+}
+
+test "Embalaje de seguridad: si  KnighRider esta contenido , su peso es 500 y peligrosidad 5" {
+  embalajeDeSeguridad.peso(knightRider)
+  embalajeDeSeguridad.saberNivelDePeligrosidad(knightRider)
+  assert.equals(500, embalajeDeSeguridad.saberPeso())
+  assert.equals(5, embalajeDeSeguridad.nivelDePeligrosidad())
+}
+
+
+
+
+

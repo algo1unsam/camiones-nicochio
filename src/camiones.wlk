@@ -34,8 +34,8 @@ object camion {
 		return materiales.max({ mercaderia => mercaderia.saberNivelDePeligrosidad() })
 	}
 
-	method saberSiPuedoIrPorLaRuta(nuevaRuta) {
-		return self.cualEslaCosaMasPeligrosa() > nuevaRuta.nuevoLimiteDeRuta()
+	method saberSiPuedoIrPorLaRuta() {
+		return self.cualEslaCosaMasPeligrosa().saberNivelDePeligrosidad() < ruta8.saberNivelDePeligrosidad()
 	}
 
 }

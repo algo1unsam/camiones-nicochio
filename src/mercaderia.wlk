@@ -98,7 +98,7 @@ object contenedorPortuario {
 	}
 
 	method saberPesoTotalDelContenedor() {
-		pesoTotal = peso + self.sumaDeTodasLasCosas()
+		pesoTotal = 100 + self.sumaDeTodasLasCosas()
 	}
 
 	method cualEslaCosaMasPeligrosa() {
@@ -111,7 +111,7 @@ object contenedorPortuario {
 	}
 
 	method peso() {
-		return peso
+		 return pesoTotal
 	}
 
 	method nivelDePeligrosidad() {

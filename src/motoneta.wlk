@@ -32,4 +32,7 @@ object motoneta {
 	method pesoTotalDeLaMotoneta(){
 		return materialesMotoneta.max ({ mercaderia => mercaderia.peso()})
 	}
+	method verMaterialesCargador(){
+		return materialesMotoneta
+	}
 }

@@ -1,6 +1,9 @@
 import camiones.*
+import mercaderia.*
+import motoneta.*
+import deposito.*
 
-object ruta {
+object ruta8 {
 
 	var nivelDePeligrosidad = 50
 
@@ -8,9 +11,8 @@ object ruta {
 		return nivelDePeligrosidad
 	}
 
-	method nuevoLimiteDeRuta(limite) {
-		nivelDePeligrosidad = limite
-	}
-
+/* 	method nuevoLimiteDeRuta(limite) {
+ * 		nivelDePeligrosidad = limite
+ }*/
 }
 
