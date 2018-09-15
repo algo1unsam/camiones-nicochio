@@ -59,7 +59,7 @@ object ladrillo {
 	var nivelDePeligrosidad = 2
 	var cantidadDeLadrillos = 0
 
-	method cantidadDeLadrillosALevar(nuevaCantidad) {
+	method cantidadDeLadrillosALlevar(nuevaCantidad) {
 		cantidadDeLadrillos = cantidadDeLadrillos + nuevaCantidad
 	}
 

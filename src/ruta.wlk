@@ -1,6 +1,6 @@
 import camiones.*
 
-object ruta9 {
+object ruta {
 
 	var nivelDePeligrosidad = 50
 

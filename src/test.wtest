@@ -5,17 +5,41 @@ import deposito.*
 import motoneta.*
 
 //punto1
-test" saber el peso de lo que transporta el camion , knight su peso es de 500, bumblebee es de 800 y ladrillo pesa 2kilos x ladrillo lleva 2" {
+test" saber el peso de lo que transporta el camion , knight su peso es de 500, 
+bumblebee es de 800 y ladrillo pesa 2kilos x ladrillo lleva 2" {
 	assert.equals(500, knightRider.peso())
 	assert.equals(800, bumblebee.peso())
-	ladrillo.cantidadDeLadrillosALevar(2)
+	ladrillo.cantidadDeLadrillosALlevar(2)
 	ladrillo.calcularPeso()
 	assert.equals(4, ladrillo.peso())
 }
 
+test" cargar un camion con la mercaderia " {
+	deposito.recibirMateriales(bumblebee)
+	deposito.recibirMateriales(knightRider)
+	deposito.recibirMateriales(ladrillo)
+	assert.equals(550, camion.cargaDisponible())
+}
 
+test " el deposito queda vacio ya que se llena el camion" {
+	deposito.recibirMateriales(ladrillo)
+	deposito.recibirMateriales(knightRider)
+	deposito.llenarCamion()
+	assert.equals(deposito.verStockDeDeposito().isEmpty())
+}
+
+test "el camion no puede llevar toda la mercaderia que recibe" {
+	deposito.recibirMateriales(knightRider)
+	deposito.recibirMateriales(bumblebee)
+	assert.throwsExceptionWithMessage("no se puede cargar el camion por que supera la carga", { => deposito.llenarCamion()})
+}
+
+
+test "la motoneta no puede llevar algo mayor a 100kg" {
+	deposito.recibirMateriales(knightRider)
+	assert.throwsExceptionWithMessage("no se puede cargar la motoneta por que supera la carga", { => deposito.llenarMotoneta()})
+}
 
 test "saber si puede pasar por la ruta" {
-	
-	assert.that(camion.saberSiPuedoIrPorLaRuta(ruta9))
+	assert.that(camion.saberSiPuedoIrPorLaRuta(ruta))
 }

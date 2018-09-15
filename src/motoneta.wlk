@@ -12,7 +12,7 @@ object motoneta {
 	
 	method cargaleUnaCosa(mercaderia) {
 		if (mercaderia.peso() > self.cargasDisponibles() &&  mercaderia.saberNivelDePeligrosidad() > self.peligrosidadMaxima()) {
-			error.throwWithMessage("no se puede cargar el camion por que supera la carga")
+			error.throwWithMessage("no se puede cargar la motoneta por que supera la carga")
 		}
 		materialesMotoneta.add(mercaderia)
 	}
