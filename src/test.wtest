@@ -1,6 +1,21 @@
 import ruta.*
 import camiones.*
+import mercaderia.*
+import deposito.*
+import motoneta.*
+
+//punto1
+test" saber el peso de lo que transporta el camion , knight su peso es de 500, bumblebee es de 800 y ladrillo pesa 2kilos x ladrillo lleva 2" {
+	assert.equals(500, knightRider.peso())
+	assert.equals(800, bumblebee.peso())
+	ladrillo.cantidadDeLadrillosALevar(2)
+	ladrillo.calcularPeso()
+	assert.equals(4, ladrillo.peso())
+}
+
+
 
 test "saber si puede pasar por la ruta" {
+	
 	assert.that(camion.saberSiPuedoIrPorLaRuta(ruta9))
 }
