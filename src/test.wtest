@@ -4,6 +4,8 @@ import mercaderia.*
 import deposito.*
 import motoneta.*
 
+//TODO muy bien los tests!
+
 //punto1
 test" saber el peso de lo que transporta el camion , knight su peso es de 500, 
 bumblebee es de 800 y ladrillo pesa 2kilos x ladrillo lleva 2" {

@@ -3,6 +3,8 @@ import ruta.*
 
 object camion {
 
+	// TODO este atributo es calculable por eso te tira el warnging
+	// no lo usas porque no es necesario
 	var peso
 	var materiales = []
 	var cargaMaxima = 550
